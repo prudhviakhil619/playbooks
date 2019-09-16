@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+  vars:
+    name: "{{ item }}"
+  with_items: httpd
+- name: installing httpd
+  package: 
+    name: "{{ item }}"
+    state: installed
+- name: running httpd
+  service:
+    name: "{{ item }}"
+    state: running
+
+
